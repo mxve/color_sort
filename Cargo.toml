@@ -1,0 +1,17 @@
+[package]
+name = "color_sort"
+version = "0.1.0"
+edition = "2024"
+description = "A library for sorting and filtering colors in HEX, RGB(A) and HSL formats."
+license = "MIT"
+repository = "https://github.com/mxve/color_sort"
+keywords = ["color", "sorting", "filtering", "rgb", "hsl"]
+
+[[example]]
+name = "sort_hex_stdin"
+path = "examples/sort_hex_stdin.rs"
+
+[dev-dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+term = "1.2"
