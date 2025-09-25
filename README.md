@@ -1,6 +1,6 @@
 # color_sort
 
-[![Crates.io Version](https://img.shields.io/crates/v/color_sort?style=for-the-badge&logo=rust)](https://crates.io/crates/color_sort) ![CI](https://img.shields.io/github/actions/workflow/status/mxve/color_sort/ci.yml?style=for-the-badge&logo=github)
+[![Crates.io Version](https://img.shields.io/crates/v/color_sort?style=for-the-badge&logo=rust)](https://crates.io/crates/color_sort) ![CI](https://img.shields.io/github/actions/workflow/status/mxve/color_sort/ci.yml?style=for-the-badge&logo=github) [![Docs.rs](https://img.shields.io/docsrs/color_sort?style=for-the-badge&logo=docs.rs)](https://docs.rs/color_sort/latest/color_sort/)
 
 A Rust library for sorting and filtering colors in HEX, RGB(A) and HSL formats.
 This library does not follow any conventions, it justworks™ but may do so differently from what you would expect.
@@ -37,6 +37,13 @@ let colors = parse_colors(&[
 // Sort by spectrum (red -> yellow -> green -> cyan -> blue -> magenta)
 let mut sorted = colors.clone();
 sort_colors(&mut sorted);
+
+// Sort by specific criteria
+let mut by_luminance = colors.clone();
+sort_colors_by(&mut by_luminance, SortOption::Luminance);
+
+let mut by_opacity = colors.clone();
+sort_colors_by(&mut by_opacity, SortOption::Opacity);
 
 // Convert to format
 let hex_colors = convert_colors(&colors, TargetFormat::Hex);
